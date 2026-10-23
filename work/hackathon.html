@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en-GB" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hackathon results platform · Aminat Afolabi</title>
+<meta name="description" content="How I product-managed the judging and results system for the StacStart Hackathon 2026: a better experience for judges and participants, private feedback and a ranking people trust.">
+<meta name="theme-color" content="#141318">
+<meta name="author" content="Aminat Afolabi">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aminat Afolabi">
+<meta property="og:title" content="Hackathon results platform · Aminat Afolabi">
+<meta property="og:description" content="How I product-managed the judging and results system for the StacStart Hackathon 2026: a better experience for judges and participants, private feedback and a ranking people trust.">
+<meta property="og:image" content="../og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hackathon results platform · Aminat Afolabi">
+<meta name="twitter:description" content="How I product-managed the judging and results system for the StacStart Hackathon 2026: a better experience for judges and participants, private feedback and a ranking people trust.">
+<meta name="twitter:image" content="../og-image.png">
+<link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/familjen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M15 15C11 6 3 4 3 10c0 4 4 6 8 6-4 1-7 4-5 8 2 3 7 0 9-7z"/><path d="M17 15c4-9 12-11 12-5 0 4-4 6-8 6 4 1 7 4 5 8-2 3-7 0-9-7z" opacity=".7"/><rect x="15.2" y="9" width="1.6" height="15" rx=".8"/></svg><span>Aminat Afolabi</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#work" aria-current="page">Work</a>
+      <a href="../beyond.html">Beyond</a>
+      <a class="opt" href="#" data-profile="cv" target="_blank" rel="noopener" hidden>CV</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="t-hack">
+<div class="case-top wrap">
+  <a class="back mono" href="../index.html#work">← All work</a>
+  <p class="case-kicker mono">Case study 01 · StacStart Hackathon 2026 · Judging and results platform</p>
+  <h1 class="case-title" style="view-transition-name:t-hack">A hackathon where nobody leaves with just a number</h1>
+  <p class="case-dek">As product manager, I designed the judging and results system for 323 developers across four countries: easy for judges to score well, useful for every team that took part, and fair enough for everyone to trust the ranking.</p>
+  <dl class="case-meta"><div><dt class="mono">Role</dt><dd>Product Manager. Designed and delivered the judging and results system; also led developer relations</dd></div><div><dt class="mono">Team</dt><dd>StacStart engineering, 9 judges, the Career Summit team</dd></div><div><dt class="mono">When</dt><dd>Build week 22 to 28 Sept 2026; winners announced at the StacStart Career Summit, 5 to 8 Oct</dd></div><div><dt class="mono">Status</dt><dd><span class="chip live">Live</span> <a href="https://stacstart.com/hackathon/results" target="_blank" rel="noopener">Results ↗</a></dd></div></dl>
+  <section class="tldr" aria-label="In 30 seconds"><h2>In 30 seconds</h2><div><b>The problem</b><p>Hackathons usually end with a ranking and silence. Teams never learn why they placed where they did.</p></div><div><b>What I did</b><p>Product-managed the system end to end: a structured scoring flow for judges, private feedback for participants, controls for admins and a clear public ranking.</p></div><div><b>What happened</b><p>96 projects, each scored by three judges with written reasons. Every team can look up its own feedback; the ranking is public.</p></div></section>
+</div>
+<div class="reading" data-reading hidden>
+  <div class="wrap">
+    <div class="switch" role="group" aria-label="Reading mode">
+      <button type="button" value="skim" aria-pressed="false">Skim</button>
+      <button type="button" value="full" aria-pressed="true">Show workings</button>
+    </div>
+    <span class="hint">Skim keeps the headline of each section. Workings shows the reasoning.</span>
+  </div>
+</div>
+<div class="wrap">
+<section class="chapter" aria-labelledby="ch-01">
+  <div class="chapter-label"><span class="num mono">01</span><h2 id="ch-01">Context</h2></div>
+  <div class="chapter-body">
+    <p class="lead">StacStart ran a hackathon for builders in Nigeria, Kenya, Uganda and Ghana: a real African problem, one week to build it, $1,800 in prizes.</p>
+    <div class="workings"><p>The hackathon sat inside the StacStart Career Summit. Teams of two to four built from 22 to 28 September, submitted by 1 October, and the winners were announced at the Summit. I was the product manager for the judging and results system. I also led developer relations, so I spent build week in the Hackathon Hub with the builders I was designing for, which shaped what they would need from the results.</p>
+<p>By the end, 323 developers had taken part, 96 projects had been submitted and the Top 10 pitched live.</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-02">
+  <div class="chapter-label"><span class="num mono">02</span><h2 id="ch-02">The problem</h2></div>
+  <div class="chapter-body">
+    <p class="lead">A ranking tells you who won. It doesn't tell 93 other teams what to do next.</p>
+    <div class="workings"><p>Most hackathons publish a leaderboard and move on. Teams never learn why they placed where they did, scores can't be questioned, and the people who didn't win leave with nothing to improve on.</p>
+<p>I wanted every team to leave better than they came: with feedback they could use to scale what they built or to come back stronger next time. That made this a trust problem as much as a results page. Participants had to trust that judging was fair, judges had to trust that their words wouldn't be changed, and organisers needed a way to fix mistakes without breaking either.</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-03">
+  <div class="chapter-label"><span class="num mono">03</span><h2 id="ch-03">Who it's for</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Judges and participants carry a hackathon. The experience had to work for both, and stay fair for everyone else.</p>
+    <div class="workings"><p>I mapped the system around the people using it rather than the pages it needed. For judges, that meant one clear rubric of four weighted criteria and a reason box beside every score, so scoring well was the easy path. For participants, it meant feedback they could open with the email they already used, no new account needed. Each role has a clear set of things it can do, and a few things it deliberately can't.</p><div class="explorer" data-tabs>
+  <div class="explorer-head"><p class="mono">Explore · One system, four views</p><p>Pick a role to see what it can and can't do. The rules are the product.</p></div>
+  <div class="tablist" role="tablist" aria-label="Roles" hidden>
+    <button type="button" role="tab" aria-selected="true">Participants</button>
+    <button type="button" role="tab" aria-selected="false">Judges</button>
+    <button type="button" role="tab" aria-selected="false">Admins</button>
+    <button type="button" role="tab" aria-selected="false">The public</button>
+  </div>
+  <div class="panel" role="tabpanel">
+    <h3>Participants</h3>
+    <div class="cando">
+      <div class="yes"><h4>Can</h4><ul><li>Submit their project through the submission form</li><li>Look up their own team's scores and written feedback with the team lead's or submission email</li><li>See the public ranking once results are live</li></ul></div>
+      <div class="no"><h4>Can't</h4><ul><li>See another team's feedback</li></ul></div>
+    </div>
+    <p class="why-line">Why: feedback is only useful if it's honest, and judges are only honest if they aren't writing for an audience.</p>
+  </div>
+  <div class="panel" role="tabpanel">
+    <h3>Judges</h3>
+    <div class="cando">
+      <div class="yes"><h4>Can</h4><ul><li>Score projects on problem fit, technical execution, demo communication and originality</li><li>Write the reason behind every score</li></ul></div>
+      <div class="no"><h4>Protected from</h4><ul><li>Having their written feedback edited by anyone</li></ul></div>
+    </div>
+    <p class="why-line">Why: a number without a reason isn't feedback. Requiring the reason also makes careless scoring harder.</p>
+  </div>
+  <div class="panel" role="tabpanel">
+    <h3>Admins</h3>
+    <div class="cando">
+      <div class="yes"><h4>Can</h4><ul><li>Track judging progress: submissions, average score, scores submitted, judges active</li><li>Inspect every score and flag finalists</li><li>Correct a numeric score while results are still private</li><li>Publish results with one switch, and unpublish them</li></ul></div>
+      <div class="no"><h4>Can't</h4><ul><li>Rewrite what a judge wrote</li></ul></div>
+    </div>
+    <p class="why-line">Why: organisers need to fix typos and errors, but a correction should never change the meaning of a judge's feedback.</p>
+  </div>
+  <div class="panel" role="tabpanel">
+    <h3>The public</h3>
+    <div class="cando">
+      <div class="yes"><h4>Can</h4><ul><li>See the full ranking and weighted scores once results are published</li><li>See the top three spotlighted</li></ul></div>
+      <div class="no"><h4>Can't</h4><ul><li>See any team's written feedback</li><li>See individual judges' scores</li></ul></div>
+    </div>
+    <p class="why-line">Why: the ranking proves the process was real. The feedback belongs to the team.</p>
+  </div>
+</div></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-04">
+  <div class="chapter-label"><span class="num mono">04</span><h2 id="ch-04">Decisions and trade-offs</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Six calls shaped the system. Most of them are about trust: between teams, judges and organisers.</p>
+    <div class="workings"><ol class="decisions"><li class="decision"><h3>A written reason behind every score</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>Judges explain each rubric score in writing.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>More work for nine judges across 96 projects. Worth it: every team got evidence it could act on, not a number to guess at.</dd></div></dl></li><li class="decision"><h3>Public ranking, private feedback</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>The ranking is public. Each team's judge notes are visible only to that team, through a lookup by team lead or submission email.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>A lookup flow to design and build instead of one open results page.</dd></div></dl></li><li class="decision"><h3>One leaderboard, three prizes</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>Every submission ranked together across categories, with three prize places.</dd></div><div class="cell"><dt class="mono">Instead of</dt><dd>A separate leaderboard for each category.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>Categories compete head to head, so a strong category can take more than one place. In return, the ranking is simple to read and hard to argue with.</dd></div></dl></li><li class="decision"><h3>Admins can correct, not rewrite</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>While results are private, admins can fix a numeric score without changing the judge's feedback. Results go live with one switch and can be pulled back.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>Stricter rules to design for each role, and a draft state to manage before anything goes public.</dd></div></dl></li><li class="decision"><h3>Slack and a hashtag for entry</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>Teams entered through Slack and #BuildWithStacStart, with reminders over Slack and WhatsApp, not email.</dd></div><div class="cell"><dt class="mono">Instead of</dt><dd>A custom registration portal.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>A less polished sign-up. The build time went into judging and results instead, where it mattered more.</dd></div></dl></li><li class="decision"><h3>AI encouraged, low effort discouraged</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>Builders could use AI tools, with judging criteria built to tell real problem-solving apart from low-effort generated submissions.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>Judges had to look past polish to the thinking underneath.</dd></div></dl></li></ol></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-05">
+  <div class="chapter-label"><span class="num mono">05</span><h2 id="ch-05">How it works</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Results live in two states, private and published, and only admins can move between them.</p>
+    <div class="workings"><ol class="flow">
+  <li><b>Build week</b><span>22 to 28 Sept, teams of 2 to 4</span></li>
+  <li><b>Submissions close</b><span>1 Oct · 96 projects</span></li>
+  <li class="key"><b>Judging</b><span>3 judges per project, a reason for every score</span></li>
+  <li class="key"><b>Private review</b><span>Admins inspect scores and correct numbers</span></li>
+  <li><b>Live pitches</b><span>Top 10 teams</span></li>
+  <li class="key"><b>Published</b><span>Public ranking + private feedback lookup. Reversible.</span></li>
+</ol>
+<p class="flow-note mono">Simplified · highlighted stages are where the platform's rules do the work</p><p>Each judge scores a project on four weighted criteria, and the three judges' scores combine into one weighted total. While results are private, mistakes can be corrected. Once published, anyone can see the ranking, and each team can open its own feedback.</p>
+<div class="margin-note"><span class="mono">What this design relies on</span>Using the team lead's or submission email as the key to a team's feedback means participants don't need accounts, which kept things light for a one-week event. It works because those emails are known only to the team.</div></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-06">
+  <div class="chapter-label"><span class="num mono">06</span><h2 id="ch-06">Working with the team</h2></div>
+  <div class="chapter-body">
+    <p class="lead">I specified how the system should behave; StacStart's engineers built the production results site.</p>
+    <div class="workings"><p>Before engineering started on the production site, the judging model was settled: one public leaderboard, three prize places, written reasons, and the submission form opening the Monday night before judging began. Nine judges scored through the system, and during build week I worked directly with builders in the Hackathon Hub.</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-07">
+  <div class="chapter-label"><span class="num mono">07</span><h2 id="ch-07">Outcome</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Every one of the 96 projects received three scored judge responses, and every team can read why.</p>
+    <div class="workings"><div class="figures">
+  <div><b>323</b><span>developers</span></div><div><b>4</b><span>countries</span></div><div><b>96</b><span>projects submitted</span></div>
+  <div><b>288</b><span>judge scores from 9 judges</span></div><div><b>Top 10</b><span>pitched live</span></div><div><b>$1,800</b><span>in prizes</span></div>
+</div>
+<p>Winners: Next Africa (Future of Work, $1,000), TelePixels (Access and Inclusion, $500) and Project Compiler (Open / Wildcard, $300).</p><div class="evidence">
+  <figure><img src="../img/hk-admin.webp" width="1100" height="629" alt="Admin dashboard showing 96 submissions, a 62.7% average score, 288 scores submitted, 9 active judges, a results-are-live switch and a ranked table" loading="lazy" decoding="async"><figcaption><b>Admin dashboard.</b> Judging progress, every score and the publish switch.</figcaption></figure>
+  <div class="col">
+    <figure><img src="../img/hk-board.webp" width="1165" height="628" alt="Public leaderboard with Next Africa first at 86.7, TelePixels second at 85.3 and PROJECT-COMPILER third at 85.0" loading="lazy" decoding="async"><figcaption><b>Public leaderboard.</b> Weighted scores, top three first.</figcaption></figure>
+    <figure><img src="../img/hk-hero.webp" width="1183" height="569" alt="Results page reading Your work, Your scores, Your next move, above a private feedback lookup by submission email" loading="lazy" decoding="async"><figcaption><b>Feedback lookup.</b> Each team sees only its own notes.</figcaption></figure>
+  </div>
+</div><p class="mono muted">Screenshots from the live platform. The admin view was captured while results were live.</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-08">
+  <div class="chapter-label"><span class="num mono">08</span><h2 id="ch-08">Reflection</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Building great products takes more than writing code.</p>
+    <div class="workings"><blockquote class="quote">"It takes understanding the problem, making thoughtful decisions, and bringing the right people together to make things happen."<cite>From my post after the Summit</cite></blockquote>
+<p><span class="chip early">Planned</span> The next step is a 90-Day Builder Challenge for hackathon teams who want to keep building. I'm preparing the work plan now.</p></div>
+  </div>
+</section>
+</div>
+<nav class="next-case wrap" aria-label="Next case study"><a href="../work/stacstart-idice.html"><span class="mono">Next case study</span><b>One platform, two very different learners →</b></a></nav>
+</main>
+<footer class="wrap site-foot"><span>© 2026 Aminat Afolabi · Lagos</span><span class="foot-links"><a href="https://www.linkedin.com/in/aminat-afolabi" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/mysterios_amina" target="_blank" rel="noopener">X</a><a href="https://github.com/Armina101" target="_blank" rel="noopener">GitHub</a></span></footer>
+<p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
+<script src="../site.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en-GB" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StacStart × iDICE · Aminat Afolabi</title>
+<meta name="description" content="How we rebuilt StacStart's learning platform to serve its academy and a federal skills programme at once, and what I chose to build first.">
+<meta name="theme-color" content="#141318">
+<meta name="author" content="Aminat Afolabi">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aminat Afolabi">
+<meta property="og:title" content="StacStart × iDICE · Aminat Afolabi">
+<meta property="og:description" content="How we rebuilt StacStart's learning platform to serve its academy and a federal skills programme at once, and what I chose to build first.">
+<meta property="og:image" content="../og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StacStart × iDICE · Aminat Afolabi">
+<meta name="twitter:description" content="How we rebuilt StacStart's learning platform to serve its academy and a federal skills programme at once, and what I chose to build first.">
+<meta name="twitter:image" content="../og-image.png">
+<link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/familjen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M15 15C11 6 3 4 3 10c0 4 4 6 8 6-4 1-7 4-5 8 2 3 7 0 9-7z"/><path d="M17 15c4-9 12-11 12-5 0 4-4 6-8 6 4 1 7 4 5 8-2 3-7 0-9-7z" opacity=".7"/><rect x="15.2" y="9" width="1.6" height="15" rx=".8"/></svg><span>Aminat Afolabi</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../index.html#work" aria-current="page">Work</a>
+      <a href="../beyond.html">Beyond</a>
+      <a class="opt" href="#" data-profile="cv" target="_blank" rel="noopener" hidden>CV</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="t-idice">
+<div class="case-top wrap">
+  <a class="back mono" href="../index.html#work">← All work</a>
+  <p class="case-kicker mono">Case study 02 · StacStart × iDICE · Learning platform</p>
+  <h1 class="case-title" style="view-transition-name:t-idice">One platform, two very different learners</h1>
+  <p class="case-dek">How we remodelled StacStart's learning platform to serve its paying academy and a federal skills programme at the same time, and what I chose to build first.</p>
+  <dl class="case-meta"><div><dt class="mono">Role</dt><dd>Product Manager. Led product and the engineering team on the rebuild</dd></div><div><dt class="mono">Team</dt><dd>StacStart engineering, with Product Lead Damilola Abudu</dd></div><div><dt class="mono">When</dt><dd>2026</dd></div><div><dt class="mono">Status</dt><dd><span class="chip live">Live</span> <a href="https://www.stacstart.com" target="_blank" rel="noopener">stacstart.com ↗</a></dd></div></dl>
+  <section class="tldr" aria-label="In 30 seconds"><h2>In 30 seconds</h2><div><b>The problem</b><p>A platform built for academy cohorts who sign up and pay suddenly had to take sponsored learners at programme scale.</p></div><div><b>What I did</b><p>Led the rebuild: set scope and priorities, ran sprints with engineering, and moved the team onto Jira.</p></div><div><b>Where it is</b><p>One platform now runs the StacStart academy and the iDICE programme, whose target is 50,000 learners in Northwest Nigeria.</p></div></section>
+</div>
+<div class="reading" data-reading hidden>
+  <div class="wrap">
+    <div class="switch" role="group" aria-label="Reading mode">
+      <button type="button" value="skim" aria-pressed="false">Skim</button>
+      <button type="button" value="full" aria-pressed="true">Show workings</button>
+    </div>
+    <span class="hint">Skim keeps the headline of each section. Workings shows the reasoning.</span>
+  </div>
+</div>
+<div class="wrap">
+<section class="chapter" aria-labelledby="ch-01">
+  <div class="chapter-label"><span class="num mono">01</span><h2 id="ch-01">Context</h2></div>
+  <div class="chapter-body">
+    <p class="lead">StacStart was my first shipped product as a PM. Then it got a much bigger job.</p>
+    <div class="workings"><p>StacStart is Conclase's learning and talent platform, serving learners in Nigeria, Kenya, Uganda and Ghana. The MVP I shipped brought learning, hiring and communication into one place: courses with IntelliTutor, an AI job-matching engine, in-platform messaging between recruiters and applicants, and a shared dashboard for recruiting teams.</p>
+<p>StacStart was then contracted to deliver training for iDICE, the Investment in Digital and Creative Enterprises Programme. It's a Federal Government of Nigeria initiative implemented by the Bank of Industry. Its Skills to Jobs training aims to reach 50,000 people in Northwest Nigeria, completely free of charge.</p>
+<div class="margin-note"><span class="mono">On the number</span>50,000 is the programme's regional target. It isn't a count of learners onboarded so far.</div>
+<figure class="single-shot"><img src="../img/idice-stacstart.webp" width="583" height="620" alt="The iDICE Scholarship listing on StacStart: fully funded, digital and creative programmes, applications open, with eligibility criteria" loading="lazy" decoding="async"><figcaption><b>The iDICE programme on StacStart.</b> Fully funded for learners, with eligibility and a programme assessment before training.</figcaption></figure></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-02">
+  <div class="chapter-label"><span class="num mono">02</span><h2 id="ch-02">What was in the way</h2></div>
+  <div class="chapter-body">
+    <p class="lead">The platform assumed one learner at a time, paying, with support over WhatsApp. None of that survives programme scale.</p>
+    <div class="workings"><ul class="list">
+  <li>Admission and class assignment happened one learner at a time. There was no bulk admission.</li>
+  <li>Tutors could see every student, not only their own.</li>
+  <li>A phantom assignment-submission bug was confusing grading.</li>
+  <li>Support ran through one person's WhatsApp, and certificates were issued by hand.</li>
+  <li>Payment sync with Flutterwave was failing on the Kenya side.</li>
+  <li>One email couldn't hold both a student and a job-seeker account.</li>
+</ul></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-03">
+  <div class="chapter-label"><span class="num mono">03</span><h2 id="ch-03">Framing the problem</h2></div>
+  <div class="chapter-body">
+    <p class="lead">This wasn't a new product. It was a second journey through the same product, and it couldn't break the first.</p>
+    <div class="workings"><p>The academy was already running on StacStart, with paying learners mid-course. iDICE learners needed to arrive with accounts ready, skip payment entirely, land in the right class with the right tutor, and get support at a scale one WhatsApp line could never handle.</p><div class="explorer" data-tabs>
+  <div class="explorer-head"><p class="mono">Explore · The two journeys</p><p>Same platform, different starting points. Shaded steps are where iDICE learners differ from academy learners.</p></div>
+  <div class="tablist" role="tablist" aria-label="View" hidden>
+    <button type="button" role="tab" aria-selected="true">Side by side</button>
+    <button type="button" role="tab" aria-selected="false">What changes for tutors</button>
+  </div>
+  <div class="panel" role="tabpanel">
+    <div class="journeys">
+      <div class="journey"><h3>Academy learner</h3><ol>
+        <li>Finds StacStart and signs up</li>
+        <li>Pays for the programme<small>Through Flutterwave</small></li>
+        <li>Joins a cohort and learns<small>Courses, IntelliTutor, tutors</small></li>
+        <li>Submits assignments and gets graded</li>
+        <li>Earns a certificate</li>
+        <li>Gets matched to jobs</li>
+      </ol></div>
+      <div class="journey"><h3>iDICE learner</h3><ol>
+        <li class="diff">Account created in bulk<small>From programme data, through a Brevo-to-StacStart integration</small></li>
+        <li class="diff">No payment step<small>The programme is free for learners</small></li>
+        <li class="diff">Assigned to a class and a tutor</li>
+        <li>Submits assignments and gets graded</li>
+        <li>Earns a certificate</li>
+        <li class="diff">Job readiness, CV builder, recruitment<small>Later in the programme</small></li>
+      </ol></div>
+    </div>
+  </div>
+  <div class="panel" role="tabpanel">
+    <div class="cando">
+      <div class="yes"><h4>With programme-scale classes, tutors need</h4><ul><li>To see only the learners assigned to them</li><li>Grading they can trust, without phantom submissions</li><li>A support channel that isn't one person's phone</li></ul></div>
+      <div class="no"><h4>Without it</h4><ul><li>Every tutor sees every student on the platform</li><li>Grading questions and support requests pile up in WhatsApp</li></ul></div>
+    </div>
+  </div>
+</div>
+<p class="flow-note mono">Simplified view of the requirements the rebuild had to meet</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-04">
+  <div class="chapter-label"><span class="num mono">04</span><h2 id="ch-04">Prioritisation</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Onboarding first. If learners can't get in, nothing else on the roadmap matters.</p>
+    <div class="workings"><p>With a tight timeline, I sequenced the work by when learners would actually need it. Bulk provisioning was the most important new build. Job-readiness stages only become relevant months after a learner starts, so they moved down the plan.</p><div class="board">
+  <section><h3>Now <span class="chip early">Plan</span></h3><ul>
+    <li><b>Bulk account provisioning</b><small>Brevo-to-StacStart integration. The critical path.</small></li>
+    <li>Bulk admission and class assignment</li>
+    <li>Tutors see only their own learners</li>
+    <li>Fix the phantom submission bug</li>
+    <li>Support ticketing<small>Instead of one WhatsApp line</small></li>
+    <li>Certificates without manual work</li>
+  </ul></section>
+  <section><h3>Later <span class="chip road">Deferred</span></h3><ul>
+    <li><b>Stages 10 to 15</b><small>Job readiness, CV builder and the recruitment pipeline</small></li>
+  </ul></section>
+  <section><h3>Wider platform <span class="chip road">Known issues</span></h3><ul>
+    <li>Flutterwave payment sync on the Kenya side</li>
+    <li>One email for both a student and a job-seeker account</li>
+  </ul></section>
+</div>
+<p class="flow-note mono">The stabilisation plan as scoped. For what has shipped, see Outcome.</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-05">
+  <div class="chapter-label"><span class="num mono">05</span><h2 id="ch-05">Decisions and trade-offs</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Four calls, each with a cost I chose to pay.</p>
+    <div class="workings"><ol class="decisions"><li class="decision"><h3>One platform, two journeys</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>The academy flow and the iDICE flow live in the same product.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>Every change has to be checked against both journeys before it ships.</dd></div></dl></li><li class="decision"><h3>Bulk provisioning is the critical path</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>A Brevo-to-StacStart integration that creates learner accounts in bulk, built before anything else new.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>Onboarding came before polish on other parts of the experience.</dd></div></dl></li><li class="decision"><h3>Later stages wait their turn</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>Job readiness, the CV builder and the recruitment pipeline (stages 10 to 15) moved later in the plan.</dd></div><div class="cell"><dt class="mono">Instead of</dt><dd>Building the whole learner journey before launch.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>That time is borrowed. Those stages have to land before learners reach them.</dd></div></dl></li><li class="decision"><h3>Jira as the team's single source of truth</h3><dl><div class="cell"><dt class="mono">What I chose</dt><dd>A Jira-based SDLC workflow: structured backlog, sprint planning, clear task ownership and progress tracking.</dd></div><div class="cell cost"><dt class="mono">What it cost</dt><dd>A new way of working to adopt in the middle of a deadline.</dd></div></dl></li></ol></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-06">
+  <div class="chapter-label"><span class="num mono">06</span><h2 id="ch-06">The technical side</h2></div>
+  <div class="chapter-body">
+    <p class="lead">Most of the hard parts were about identity, data and money moving between systems.</p>
+    <div class="workings"><ul class="list">
+  <li><b>Bulk provisioning.</b> Learner records come from programme data and become StacStart accounts through an integration with Brevo, the email platform, instead of thousands of individual sign-ups.</li>
+  <li><b>Account model.</b> One email couldn't hold both a student account and a job-seeker account, a structural limit that matters once learners move from training towards jobs.</li>
+  <li><b>Payments across borders.</b> Flutterwave sync failures affected Kenyan learners. I recommended Kora for collecting payments from Kenyan students into a Nigerian account without setting up a separate Kenyan entity.</li>
+  <li><b>Delivery structure.</b> In Jira, epics and sprints are separate dimensions: each story carries its epic link, and sprints are independent time-boxes. That way the team could see both what a feature needed and what was due this sprint.</li>
+</ul></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-07">
+  <div class="chapter-label"><span class="num mono">07</span><h2 id="ch-07">Working with people</h2></div>
+  <div class="chapter-body">
+    <p class="lead">I sat between the programme's needs and the engineering team's capacity.</p>
+    <div class="workings"><p>I led the engineering team through the rebuild: scoping, prioritising and running sprints. I worked closely with Product Lead Damilola Abudu, who is also iDICE's Northwest Program Coordinator, so the programme's realities on the ground fed straight into what we built. Alongside product, I also served as StacStart's Program Coordinator from February to August 2026.</p></div>
+  </div>
+</section>
+<section class="chapter" aria-labelledby="ch-08">
+  <div class="chapter-label"><span class="num mono">08</span><h2 id="ch-08">Outcome</h2></div>
+  <div class="chapter-body">
+    <p class="lead">One platform now runs StacStart's academy and the iDICE programme, and the team ships through a shared, visible workflow.</p>
+    <div class="workings"><ul class="status-list">
+  <li><span>Remodelled LMS serving academy and iDICE learners<small>Both journeys on one platform</small></span><span class="chip live">Live</span></li>
+  <li><span>Jira-based SDLC workflow for the software team<small>Delivery became more transparent and the team moved faster</small></span><span class="chip live">In use</span></li>
+  <li><span>iDICE learner target, Northwest Nigeria<small>Programme goal, not a count of learners onboarded</small></span><span class="chip target">50,000 target</span></li>
+</ul>
+<!-- CONFIRM: add the specific fixes that shipped (bulk provisioning, tutor scoping, support ticketing, automated certificates) and any measured numbers: learners onboarded, time to onboard a cohort, support volume -->
+<p>I was named Conclase's Staff of the Quarter for Q2 2026.</p>
+<div class="margin-note"><span class="mono">What I'm watching</span>The deferred stages. Job readiness and the CV builder have to be ready before the first iDICE learners reach that point in the programme.</div></div>
+  </div>
+</section>
+</div>
+<nav class="next-case wrap" aria-label="Next case study"><a href="../work/mimuads.html"><span class="mono">Next case study</span><b>Screen ads a small business can actually buy →</b></a></nav>
+</main>
+<footer class="wrap site-foot"><span>© 2026 Aminat Afolabi · Lagos</span><span class="foot-links"><a href="https://www.linkedin.com/in/aminat-afolabi" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/mysterios_amina" target="_blank" rel="noopener">X</a><a href="https://github.com/Armina101" target="_blank" rel="noopener">GitHub</a></span></footer>
+<p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
+<script src="../site.js"></script>
+</body>
+</html>
