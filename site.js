@@ -396,15 +396,25 @@ if (/claude\.ai$|claudeusercontent\.com$/.test(location.hostname)) PROFILE.cv = 
     function setStop(i) {
       at = i;
       route.style.strokeDashoffset = String(total - lens[i]);
-      pinsEl.forEach(function (p, j) { p.classList.toggle("done", j < i); p.classList.toggle("active", j === i); });
+      pinsEl.forEach(function (p, j) {
+        p.classList.toggle("done", j < i); p.classList.toggle("active", j === i);
+        // "you are here": the marker drops onto the current-role pin when the route reaches it
+        if (p.classList.contains("pin-now")) { var was = p.classList.contains("arrived"); p.classList.toggle("arrived", j <= i); if (!was && j <= i) { p.classList.remove("drop"); void p.getBBox(); p.classList.add("drop"); } }
+      });
       stopsEl.forEach(function (li, j) { var on = j === i; li.classList.toggle("is-active", on); li.querySelector(".stop-head").setAttribute("aria-expanded", String(on)); });
     }
-    function stop() { playing = false; clearInterval(timer2); playBtn.textContent = "Play"; }
+    function stop() { playing = false; clearTimeout(timer2); playBtn.textContent = "Play"; }
+    // product stops carry data-dwell, so autoplay pauses longer on them to give time to read
+    function dwell(i) { return +(stopsEl[i] && stopsEl[i].getAttribute("data-dwell")) || 2400; }
+    function tick() {
+      if (!playing) return;
+      if (at < lens.length - 1) { setStop(at + 1); timer2 = setTimeout(tick, dwell(at)); } else stop();
+    }
     function play() {
       playing = true; playBtn.textContent = "Pause";
       if (at >= lens.length - 1) setStop(0);
-      clearInterval(timer2);
-      timer2 = setInterval(function () { if (at < lens.length - 1) setStop(at + 1); else stop(); }, 2400);
+      clearTimeout(timer2);
+      timer2 = setTimeout(tick, dwell(at));
     }
     ctr.hidden = false;
     stopsEl.forEach(function (li, j) { li.querySelector(".stop-head").addEventListener("click", function () { stop(); setStop(j); }); });
@@ -416,6 +426,91 @@ if (/claude\.ai$|claudeusercontent\.com$/.test(location.hostname)) PROFILE.cv = 
     else { route.style.strokeDashoffset = String(total); setStop(0); playBtn.textContent = "Play"; onView(jr, function () { play(); }, 0.35); }
   }
 
+
+  // Kind words: two slow reels of recommendations and receipts. Tap any card to read it in full.
+  (function () {
+    var kw = document.querySelector("[data-kw]");
+    if (!kw) return;
+    var list = [];
+    try { list = JSON.parse(kw.querySelector("#kw-data").textContent); } catch (e) { return; }
+    var index = {}; list.forEach(function (d, i) { index[d.id] = i; });
+    var dlg = kw.querySelector(".kw-modal"), body = dlg.querySelector(".kw-m-body"), count = dlg.querySelector(".kw-m-count");
+    var cur = -1, opener = null, pauseBtn = kw.querySelector(".kw-pause");
+
+    if (!reduce) {
+      pauseBtn.hidden = false;
+      pauseBtn.addEventListener("click", function () {
+        var on = kw.classList.toggle("is-paused");
+        pauseBtn.setAttribute("aria-pressed", String(on));
+        pauseBtn.querySelector(".kw-pause-txt").textContent = on ? "Play" : "Pause";
+      });
+    }
+
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+    function link(d) { var ext = /^https?:/.test(d.url); return d.url ? '<a class="kw-m-link" href="' + esc(d.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : "") + ">" + esc(d.url_label || "View source") + (ext ? " ↗" : " →") + "</a>" : ""; }
+    function render(i) {
+      cur = i;
+      var d = list[i], h = "";
+      if (d.type === "recommendation") {
+        h = '<blockquote class="kw-m-quote">“' + esc(d.text) + '”</blockquote>' +
+            '<div class="kw-m-person">' + (d.photo ? '<img src="' + esc(d.photo) + '" width="240" height="240" alt="' + esc(d.author) + '">' : "") +
+            '<div><b id="kw-m-title">' + esc(d.author) + "</b><span>" + esc(d.role) + "</span></div></div>" +
+            '<p class="kw-m-meta"><span>' + esc(d.platform) + " recommendation</span>" + link(d) + "</p>";
+      } else if (d.type === "award") {
+        h = '<div class="kw-m-award"><p class="mono muted">Award</p><p class="big" id="kw-m-title">' + esc(d.text) + "</p><p><b>" + esc(d.author) + "</b></p><p class=\"muted\">" + esc(d.role) + "</p>" + link(d) + "</div>";
+      } else {
+        h = '<figure class="kw-m-figure"><div class="kw-m-imgwrap"><img src="' + esc(d.image) + '" width="' + d.w + '" height="' + d.h + '" alt="' + esc((d.platform ? d.platform + " screenshot: " : "") + d.caption) + '"></div>' +
+            '<figcaption class="kw-m-cap" id="kw-m-title">' + esc(d.caption) + "</figcaption></figure>" +
+            '<p class="kw-m-meta"><span>' + esc(d.author) + (d.role ? ", " + esc(d.role) : "") + (d.platform ? " · " + esc(d.platform) : "") + "</span>" +
+            '<button type="button" class="kw-m-zoom" aria-pressed="false">Enlarge</button>' + link(d) + "</p>";
+      }
+      body.innerHTML = h;
+      body.scrollTop = 0;
+      count.textContent = (i + 1) + " of " + list.length;
+      var zoom = body.querySelector(".kw-m-zoom"), wrap = body.querySelector(".kw-m-imgwrap");
+      if (zoom && wrap) {
+        var toggle = function () { var on = wrap.classList.toggle("is-zoomed"); zoom.setAttribute("aria-pressed", String(on)); zoom.textContent = on ? "Fit to screen" : "Enlarge"; };
+        zoom.addEventListener("click", toggle);
+        wrap.querySelector("img").addEventListener("click", toggle);
+      }
+    }
+    function open(i, from) {
+      opener = from; render(i);
+      kw.classList.add("kw-modal-open");
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+      document.documentElement.classList.add("bko-lock");
+      dlg.querySelector(".kw-m-close").focus();
+    }
+    function close() { if (dlg.open) dlg.close(); }
+    dlg.addEventListener("close", function () {
+      kw.classList.remove("kw-modal-open");
+      document.documentElement.classList.remove("bko-lock");
+      // return focus to the visible (non-duplicate) card for the note last shown
+      var id = list[cur] && list[cur].id;
+      var target = id ? kw.querySelector('.kw-set:not(.kw-dup) .kw-item[data-id="' + id + '"] .kw-card') : opener;
+      (target || opener).focus({ preventScroll: true });
+    });
+    kw.querySelectorAll(".kw-card").forEach(function (card) {
+      card.addEventListener("click", function () { open(index[card.parentNode.getAttribute("data-id")], card); });
+    });
+    dlg.querySelector(".kw-m-close").addEventListener("click", close);
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) close(); });
+    dlg.querySelector(".kw-m-prev").addEventListener("click", function () { render((cur - 1 + list.length) % list.length); });
+    dlg.querySelector(".kw-m-next").addEventListener("click", function () { render((cur + 1) % list.length); });
+    dlg.addEventListener("keydown", function (e) {
+      if (e.key === "Tab") {
+        var f = [].filter.call(dlg.querySelectorAll("a[href], button"), function (el) { return el.offsetParent !== null; });
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && (document.activeElement === first || !dlg.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (document.activeElement === last || !dlg.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+        return;
+      }
+      if (e.target.closest && e.target.closest("a")) return;
+      if (e.key === "ArrowRight") { e.preventDefault(); render((cur + 1) % list.length); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); render((cur - 1 + list.length) % list.length); }
+    });
+  })();
+
   // zoomable images: click or press Enter on any content image
   var dlg = document.createElement("dialog");
   dlg.className = "lightbox";
@@ -425,7 +520,7 @@ if (/claude\.ai$|claudeusercontent\.com$/.test(location.hostname)) PROFILE.cv = 
   dlg.querySelector(".lb-close").addEventListener("click", function () { dlg.close(); });
   dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
   document.querySelectorAll("main img").forEach(function (im) {
-    if (im.closest("a") || im.closest("[data-proofs]")) return;
+    if (im.closest("a") || im.closest("[data-proofs]") || im.closest("[data-kw]")) return;
     im.classList.add("zoomable");
     im.tabIndex = 0;
     im.setAttribute("role", "button");
