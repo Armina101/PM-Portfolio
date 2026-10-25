@@ -6,6 +6,79 @@ If you'd rather edit by hand, each entry has the exact text to find and replace.
 
 ---
 
+## 2026-10-25 (night, 2) · Clean URLs, social preview, Beyond page restyle
+
+**Files changed:** `index.html`, `beyond.html`, all five `work/*.html` pages, `styles.css`, `site.js`, `og-image.png` (replaced)
+**New file:** `vercel.json` (at the top level, next to `index.html`)
+
+Apply by copying the files in, keeping the `work` folder. `vercel.json` must sit at the top level of the repo.
+
+### 1. Clean URLs (`vercel.json`, every page, `site.js`)
+- **The new addresses:**
+  - `/work` and `/contact` open the homepage and land on those sections.
+  - `/beyond` is the Beyond page.
+  - `/work/hackathon`, `/work/stacstart-idice`, `/work/mimuads`, `/work/zuri` and `/work/nevara` are the case studies.
+- **`vercel.json`:**
+  - `cleanUrls` serves pages without `.html`, and 308-redirects old `.html` links to the clean version.
+  - `trailingSlash: false` redirects `/work/` to `/work`.
+  - Two rewrites serve the homepage at `/work` and `/contact`.
+- **On the homepage:** clicking Work, Contact, See the work or the logo scrolls smoothly and updates the address bar without reloading. Back and forward scroll between sections, and refreshing `/contact` lands on Contact.
+- **Local previews:** every rewritten link keeps its old target in `data-dev`. On hosts without Vercel's rewrites (the Claude preview, a local file server), `site.js` switches links back to `index.html#work` etc., so previews keep working. Clean links are used only on theafolabiamina.com and *.vercel.app.
+
+### 2. Social sharing preview (every page, `og-image.png`)
+- **Homepage title and description:** "Aminat Afolabi | Product Manager" / "Product manager with a software engineering background. Explore my work, product decisions, and the outcomes behind products I've helped build."
+- **Tags updated:** the meta description, Open Graph title, description, URL and image (with size and alt text), Twitter/X `summary_large_image` tags, and a canonical link.
+- **Absolute image URL:** every page points to `https://theafolabiamina.com/og-image.png`. Social sites need the full address.
+- **New `og-image.png` (1200×630):** in the current design, with the "Product Manager" pill, "I show my workings." with the yellow highlight, your name and line, your portrait with the dark outline, yellow shadow and lavender tile, and theafolabiamina.com.
+
+### 3. Beyond page in the same visual language (`beyond.html`, `styles.css`)
+- **Pill labels:** "Beyond the products", "Communities", "On stage", "The toolbox" and "Off the clock".
+- **Highlighted headings:** yellow highlight on "led" and "panels".
+- **CareerFest:** the photos have rounded outlined frames, the stats sit in a lilac card with the yellow shadow, and the quote is a card with a purple edge.
+- **Communities and talks:** each row is a card that lifts with the yellow shadow on hover, with dates in purple.
+- **Corkboard:** gets the yellow shadow.
+- **Off the clock:** becomes a small card.
+- **Closing link:** "Now, the product work" is now the same lilac panel as the homepage's Beyond link.
+
+### Checked before release
+- **Real URLs:** tested on a local server that behaves like Vercel:
+  - Every clean URL loads directly and refreshes correctly.
+  - `.html` addresses and trailing slashes redirect.
+  - Nav clicks scroll without reloading, back and forward work, and All work and Contact from other pages land on the right section.
+  - The book links open the clean case-study URLs.
+- **Without rewrites:** the Claude preview and plain file server still use the old links and work.
+- **Pages:** all pages pass at phone, tablet and desktop sizes, in light and dark. The bookshelf, reel and journey all still work.
+
+---
+
+## 2026-10-25 (evening, 5) · One visual language across the whole site, new label font
+
+**Files changed:** `index.html`, `styles.css`
+**Not changed:** the other pages' HTML. They pick up the new label font through `styles.css`.
+
+Apply by copying the two files in.
+
+### 1. Small labels: new font everywhere (`styles.css`)
+- **Before:** every small uppercase label used IBM Plex Mono, a typewriter-style font. This covers labels like "STRATEGY · LEARNED ON...", the dates on The plot so far, the case study tags and "IN 30 SECONDS".
+- **After:** they now use the site's main font, Familjen Grotesk, in bold with a little letter spacing.
+- **How:** one line in `styles.css`: `--mono` now points to Familjen Grotesk.
+
+### 2. Top half of the homepage matches Beyond, Kind words and Contact (`index.html`, `styles.css`)
+- **Section labels:** purple pill labels added above Selected work ("The work"), Principles I build by ("How I think") and The plot so far ("The journey").
+- **Headings:** yellow highlight on "work" and "so far".
+- **Bookshelf:** now sits in a lilac panel with a dark outline and the yellow offset shadow.
+- **Principles:** each principle is now a white card with rounded corners. On hover it gets a dark outline and the yellow shadow. The category ("Users", "Strategy"...) is a purple chip, followed by "Learned on ..." in bold.
+- **The plot so far:**
+  - **Map:** rounded corners and the yellow shadow.
+  - **Stops:** each stop is a small card; the open stop is lilac with the yellow shadow.
+- **Hero photo:** dark outline and the yellow offset shadow, like the panels below.
+
+### Checked before release
+- All pages pass at phone, tablet and desktop sizes, in light and dark.
+- The bookshelf, The plot so far autoplay and the Kind words reel all still work.
+
+---
+
 ## 2026-10-25 (evening, 4) · Book copy, case study headers, Skim switch
 
 **Files changed:** `index.html`, `styles.css`, all five `work/*.html` case study pages

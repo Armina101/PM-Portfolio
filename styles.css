@@ -18,7 +18,7 @@
   --accent:#4B2A73; --accent-soft:#ECE6F5;
   --live:#167A4C; --live-soft:#DDF1E6; --plan:#8A5A00; --plan-soft:#FFF0C7;
   --sans:"Familjen Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --mono:"Familjen Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif; /* small labels: now the site sans, bold and spaced */
   --serif:"Newsreader", Georgia, "Times New Roman", serif;
   --wrap:1680px; --gut:clamp(16px,5vw,96px);
 }
@@ -55,7 +55,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-0.025em;line-height:1.02;te
 p,ul,ol,dl,dd,figure,blockquote{margin:0}
 ul,ol{padding:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
-.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:400}
+.mono{font-family:var(--mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
 .muted{color:var(--muted)}
 .serif-note{font-family:var(--serif);font-style:italic;color:var(--plum);font-size:1.1em;line-height:1.35}
 :focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:3px}
@@ -1067,3 +1067,54 @@ html.bko-lock,html.bko-lock body{overflow:hidden}
 .switch button:hover{color:var(--ink)}
 .switch button[aria-pressed="true"]{background:var(--hi);color:#141318;box-shadow:inset 0 0 0 1.5px #141318}
 .switch button:focus-visible{outline:3px solid var(--plum);outline-offset:2px}
+
+/* ===== One visual language for the whole homepage (matches Beyond, Kind words and Contact) ===== */
+.sec-title{margin-top:18px}
+.band-head > div{display:grid;justify-items:start}
+.eyebrow-pill{font-family:var(--sans)}
+/* Principles: header without the rule; each principle is a card */
+.think-head{border-bottom:0;padding-bottom:clamp(8px,1.4vw,16px)}
+.think-head > div{display:grid;justify-items:start}
+.tk-row{background:var(--raised);border:1.5px solid var(--line);border-radius:22px;padding:clamp(20px,2.4vw,32px) clamp(20px,2.6vw,36px);margin-top:18px;transition:border-color .25s,box-shadow .25s,transform .25s}
+.tk-row:last-child{border-bottom:1.5px solid var(--line)}
+.tk-row:hover{border-color:var(--ink);box-shadow:6px 6px 0 var(--hi);transform:translate(-2px,-2px)}
+.tk-cat{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.85rem;color:var(--muted);letter-spacing:0;font-weight:500}
+.tk-chip{display:inline-flex;padding:4px 11px;border-radius:999px;background:#4B2A73;color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.tk-ref{font-weight:600;color:var(--ink);opacity:.75}
+@media (max-width:640px){.tk-row{padding:20px}}
+/* Selected work: the shelf sits in a lilac panel with the yellow offset shadow */
+.shelf{background:var(--plum-soft);border:1.5px solid var(--ink);border-radius:28px;box-shadow:8px 8px 0 var(--hi);margin-inline:2px}
+.shelf-blob{background:var(--raised);opacity:.7}
+@media (max-width:640px){.shelf{border-radius:20px;box-shadow:5px 5px 0 var(--hi)}}
+/* The plot so far: rounded map with the yellow shadow; the open stop becomes a card */
+.jmap{border-radius:22px;box-shadow:8px 8px 0 var(--hi)}
+.stops{border-top:0;gap:8px}
+.stop{border:1.5px solid var(--line);border-radius:14px;background:var(--raised);transition:border-color .2s,background .2s}
+.stop-head{padding:14px 16px}
+.stop-body{padding:0 16px 16px}
+.stop:hover{border-color:var(--ink)}
+.stop.is-active{border-color:var(--ink);background:var(--plum-soft);box-shadow:4px 4px 0 var(--hi)}
+.stop.is-active .stop-n{color:var(--plum)}
+/* Hero photo: outlined like the panels below */
+.hero-figure .proof-stage{border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--hi)}
+.band-head p.eyebrow-pill,.think-head p.eyebrow-pill,.kw-head p.eyebrow-pill{color:#fff;justify-self:start;max-width:none;font-size:.78rem;line-height:1;margin:0}
+@media (max-width:480px){.band-head p.eyebrow-pill,.think-head p.eyebrow-pill,.kw-head p.eyebrow-pill{font-size:.68rem}}
+
+/* Sections reached by /work and /contact land below the sticky header */
+#work,#contact,#main{scroll-margin-top:76px}
+
+/* ===== Beyond page in the same visual language ===== */
+.case-top .eyebrow-pill{color:#fff;margin:0 0 6px;font-size:.78rem}
+.cf-soft .stats{display:inline-flex;flex-wrap:wrap;gap:12px 28px;margin-top:20px;padding:16px 22px;border:1.5px solid var(--ink);border-radius:18px;background:var(--plum-soft);box-shadow:5px 5px 0 var(--hi)}
+.cf-soft .essay img{border-radius:16px;border:1.5px solid var(--ink)}
+.cf-soft .quote{padding:22px 26px;border-radius:18px;background:var(--raised);border:1.5px solid var(--line);border-left:6px solid var(--plum)}
+.rows{display:grid;gap:12px}
+.rows li{border:1.5px solid var(--line);border-radius:18px;background:var(--raised);padding:18px 22px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.rows li:last-child{border-bottom:1.5px solid var(--line)}
+.rows li:hover{border-color:var(--ink);box-shadow:5px 5px 0 var(--hi);transform:translate(-2px,-2px)}
+.rows .when{color:var(--plum);font-weight:700}
+.cork{border-radius:22px;box-shadow:8px 8px 0 var(--hi)}
+.offclock{display:grid;justify-items:start;gap:14px}
+.offclock p:not(.eyebrow-pill){max-width:60ch;font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.5;padding:20px 24px;border:1.5px solid var(--line);border-radius:18px;background:var(--raised)}
+.offclock .eyebrow-pill{color:#fff}
+@media (prefers-reduced-motion:reduce){.rows li{transition:none}}

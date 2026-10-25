@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/work", "destination": "/" },
+    { "source": "/contact", "destination": "/" }
+  ]
+}

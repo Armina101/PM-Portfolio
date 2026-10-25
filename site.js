@@ -15,6 +15,42 @@ if (/claude\.ai$|claudeusercontent\.com$/.test(location.hostname)) PROFILE.cv = 
   var root = document.documentElement;
   var base = root.getAttribute("data-base") || "";
 
+  // Clean URLs (/work, /contact, /beyond, /work/zuri). They need Vercel's rewrites, so anywhere
+  // else (the Claude preview, a local file server) links fall back to the original file paths.
+  var cleanHost = /(^|\.)theafolabiamina\.com$|\.vercel\.app$/.test(location.hostname);
+  if (!cleanHost) document.querySelectorAll("a[data-dev]").forEach(function (a) { a.setAttribute("href", a.getAttribute("data-dev")); });
+
+  // On the homepage, /work and /contact are sections: scroll to them on load, on click and on back/forward
+  var SECTIONS = { work: "work", contact: "contact" };
+  function sectionFromPath(p) { var m = p.replace(/\/+$/, "").match(/\/(work|contact)$/); return m ? SECTIONS[m[1]] : null; }
+  var onHome = !!document.getElementById("work") && !!document.getElementById("contact");
+  function goTo(id, smooth) {
+    var el = id ? document.getElementById(id) : null;
+    var reduceM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (el) el.scrollIntoView({ behavior: smooth && !reduceM ? "smooth" : "auto", block: "start" });
+    else window.scrollTo({ top: 0, behavior: smooth && !reduceM ? "smooth" : "auto" });
+  }
+  if (onHome && cleanHost) {
+    var startId = sectionFromPath(location.pathname);
+    if (startId) {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      requestAnimationFrame(function () { goTo(startId, false); });
+      window.addEventListener("load", function () { goTo(startId, false); });
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[data-dev]");
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0 || a.target === "_blank") return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      var id = sectionFromPath(url.pathname), isHome = url.pathname.replace(/\/+$/, "") === "";
+      if (!id && !isHome) return;
+      e.preventDefault();
+      if (url.pathname !== location.pathname) history.pushState({ section: id }, "", url.pathname);
+      goTo(id, true);
+    });
+    window.addEventListener("popstate", function () { goTo(sectionFromPath(location.pathname), true); });
+  }
+
   // profile links
   document.querySelectorAll("[data-profile]").forEach(function (el) {
     var key = el.getAttribute("data-profile"), val = PROFILE[key];
