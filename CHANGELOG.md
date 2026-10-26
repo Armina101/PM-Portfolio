@@ -6,6 +6,41 @@ If you'd rather edit by hand, each entry has the exact text to find and replace.
 
 ---
 
+## 2026-10-26 · Featured books, bookcase design, latest CV
+
+**Files changed:** `index.html`, `styles.css`, `Aminat-Afolabi-CV.pdf`
+**Not changed:** everything else
+
+Apply by copying the files in.
+
+### 1. Featured books (`index.html`, `styles.css`)
+- **The sticker:** Hackathon Platform, StacStart × iDICE and Mimuads each carry a round yellow "Featured" sticker with a purple star, pinned to the top corner of the book and slightly tilted. It pops in when the page loads and wiggles on hover. On phones it shows just the star.
+- **Screen readers:** these three books are announced as "featured".
+- **The caption:** a new line under "Pick a book to open it": "★ Starred books are my top picks."
+- **Nodecademy:** stays on the shelf but isn't starred, because it has no case study page yet.
+
+### 2. Bookcase design (`index.html`, `styles.css`)
+- **Before:** the lilac panel with the yellow shadow.
+- **After:** a lavender bookcase, following the reference: a top board with a shaded underside, two side posts with legs, the shelf board the books stand on, and a soft floor shadow. It turns deep purple in dark mode.
+
+### 3. Latest CV on the site (`Aminat-Afolabi-CV.pdf`)
+- Download CV now serves the 26 Oct CV: the new Summary, Conclase, Splexxlabs, Selected Builds and Leadership; Monnify; "support 50,000+ users"; Nigeria, Kenya and Uganda.
+- It was checked clean, with no watermark and no hidden characters.
+
+### 4. Follow-up the same morning (`styles.css`)
+- **Books and plants:** they now stand directly on the shelf board. Before, there was a gap above it.
+- **Background circles:** unchanged (a brief resize was reverted).
+- **Featured sticker redesign:**
+  - It's now a small scalloped yellow seal with a cream centre and a purple star, with a crisp dark offset shadow.
+  - It replaces the larger round sticker with "FEATURED" lettering around the edge.
+  - The "Starred books are my top picks" line uses the same seal.
+
+### Checked before release
+- All pages pass at phone, tablet and desktop sizes, in light and dark.
+- All six books still fly out from, and return to, their exact spot on the new shelf, and every close method works.
+
+---
+
 ## 2026-10-25 (night, 2) · Clean URLs, social preview, Beyond page restyle
 
 **Files changed:** `index.html`, `beyond.html`, all five `work/*.html` pages, `styles.css`, `site.js`, `og-image.png` (replaced)
