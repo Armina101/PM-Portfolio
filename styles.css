@@ -1178,3 +1178,20 @@ html.bko-lock,html.bko-lock body{overflow:hidden}
 .star-note-ico .sb-star-seal{fill:#FFC21A;stroke:#141318;stroke-width:2.2;stroke-linejoin:round}
 .star-note-ico .sb-star-ring{fill:#FFF6D6;stroke:#141318;stroke-width:1.6}
 .star-note-ico .sb-star-ico{fill:#4B2A73}
+
+/* Plants: anchored just inside each bookcase post, sitting on the shelf board, at every width */
+.shelf-plant{position:absolute;bottom:92px;width:clamp(46px,4.4vw,64px);margin:0;z-index:2}
+.shelf-plant:not(.shelf-plant-r){left:calc(clamp(0px,4%,60px) + 30px + 12px + clamp(14px,2.4vw,40px))}
+.shelf-plant-r{right:calc(clamp(0px,4%,60px) + 30px + 12px + clamp(14px,2.4vw,40px))}
+/* in-between widths (e.g. a phone in "desktop view", ~980px): smaller plants tucked by the posts */
+@media (min-width:641px) and (max-width:1099px){
+  .shelf-plant{width:34px}
+  .shelf-plant:not(.shelf-plant-r){left:calc(clamp(0px,4%,60px) + 30px + 12px + 4px)}
+  .shelf-plant-r{right:calc(clamp(0px,4%,60px) + 30px + 12px + 4px)}
+}
+/* tablets: frame sits at the edges so the books fit; no room for plants */
+@media (min-width:641px) and (max-width:939px){
+  .bcase-post-l{left:0}.bcase-post-r{right:0}
+  .bcase-top,.shelf-plank{left:26px;right:26px}
+  .shelf-plant{display:none}
+}

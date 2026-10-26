@@ -35,9 +35,18 @@ Apply by copying the files in.
   - It replaces the larger round sticker with "FEATURED" lettering around the edge.
   - The "Starred books are my top picks" line uses the same seal.
 
-### Checked before release
-- All pages pass at phone, tablet and desktop sizes, in light and dark.
-- All six books still fly out from, and return to, their exact spot on the new shelf, and every close method works.
+### 5. Plant fix for in-between widths (`styles.css` only)
+- **Why:** a phone in "desktop view" pretends to be about 980px wide. At that width the plants were placed against the section edges, not the bookcase, so they slid onto the posts and hung off the shelf.
+- **Plants:** they're now anchored just inside each post, sitting on the shelf board.
+  - At 941 to 1099px they're slightly smaller.
+  - On tablets below 940px and on phones they're hidden, because there's no room.
+  - On tablets the frame sits at the edges so the books fit inside it.
+- **Frame look:** a bolder, more "defined" frame was tried and then reverted, so the bookcase keeps its previous look.
+- **Checked:** at 390, 820, 980, 1024, 1100, 1180, 1280, 1440 and 1920px:
+  - plants are inside the frame and clear of the books
+  - books stand on the board
+  - no overflow
+  - every book still flies out from and back to its spot
 
 ---
 
