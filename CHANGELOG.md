@@ -6,6 +6,34 @@ If you'd rather edit by hand, each entry has the exact text to find and replace.
 
 ---
 
+## 2026-10-27 · Two new recommendations, Sabilytics analytics
+
+**Files changed:** `index.html`, `beyond.html`, all five `work/*.html` pages
+**New images:** `img/hs-olaoluwa.webp`, `img/hs-saka.webp`
+**Not changed:** `styles.css`, `site.js` and everything else
+
+Apply by copying the files in, keeping the `work` and `img` folders.
+
+### 1. Kind words: two new recommendations (`index.html`, `img/`)
+- **Olaoluwa Adesakin**, Head of Marketing Operations, Conclase: "Few people make a team better just by being in the room, Aminat is one of them. She consistently elevated every project we worked on, from early brainstorms to final delivery. I could always count on her to follow through, even during short deadlines."
+- **Saka Jamiu**, Senior Software Engineer, FCMB and Conclase: "I had the pleasure of working with her, and I can confidently attest to her exceptional work ethic, professionalism, and dedication to excellence. She is a highly dependable and results-driven Product Owner who consistently demonstrates strong ownership, attention to detail, and a genuine commitment to delivering value. Her ability to communicate effectively, collaborate across teams, and balance business objectives with user needs makes her a valuable asset to any organization."
+- **Placement:** both are in the top row of the reel, each with their headshot, and open in the reader.
+- **Link:** "See my LinkedIn" goes to your profile, like the other recommendations.
+- **Count:** the reel now has 14 items.
+- **Editing later:** the content lives in `site-src/kind_words.py`.
+
+### 2. Sabilytics web analytics (every page)
+- **Where:** this script is in the `<head>` of all seven pages: `<script async src="https://www.sabilytics.com/script.js" data-site="fq1wqhvx4m2n" data-domain="theafolabiamina.com"></script>`
+- **Safe to load:** it loads in the background (`async`), so it never slows down or blocks the page. If Sabilytics is unreachable, the site still works normally.
+- **Claude preview:** the script isn't added there, so only real visits to theafolabiamina.com are counted.
+
+### Checked before release
+- **New cards:** both open with the right person, photo and text. Close, Escape and outside-click all work, and focus returns to the card.
+- **Pages:** all seven pass at phone, tablet and desktop sizes, in light and dark.
+- **Analytics:** the test environment can't reach sabilytics.com, so I checked the script is present on every page and loads asynchronously. Visits will start showing in your Sabilytics dashboard after you deploy.
+
+---
+
 ## 2026-10-26 · Featured books, bookcase design, latest CV
 
 **Files changed:** `index.html`, `styles.css`, `Aminat-Afolabi-CV.pdf`
