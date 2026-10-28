@@ -1,0 +1,8 @@
+# Every search engine (Googlebot, Bingbot and others) may crawl the whole site.
+User-agent: *
+Allow: /
+# Housekeeping notes for the repo, not pages for visitors
+Disallow: /CHANGELOG.md
+Disallow: /README.txt
+
+Sitemap: https://theafolabiamina.com/sitemap.xml

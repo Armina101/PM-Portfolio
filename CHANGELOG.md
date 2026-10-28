@@ -6,6 +6,34 @@ If you'd rather edit by hand, each entry has the exact text to find and replace.
 
 ---
 
+## 2026-10-28 · Search discoverability: sitemap, robots.txt, structured data
+
+**New files:** `sitemap.xml`, `robots.txt` (both at the top level, next to `index.html`)
+**Files changed:** `index.html` (structured data added in the `<head>`)
+**Not changed:** how anything looks or works
+
+### 1. `sitemap.xml`
+- **What's in it:** your 7 public pages at their clean addresses: `/`, `/beyond`, `/work/hackathon`, `/work/stacstart-idice`, `/work/mimuads`, `/work/zuri` and `/work/nevara`. Each has the date it was last built.
+- **Left out on purpose:** `/work` and `/contact` are just the homepage scrolled to a section, so listing them would make Google see the same page three times.
+- **Kept up to date:** it's generated with the site, so a new case study is added automatically.
+
+### 2. `robots.txt`
+- **Crawling:** every search engine (Googlebot, Bingbot and others) may crawl the whole site. There were no restrictions before.
+- **The only exclusions:** `CHANGELOG.md` and `README.txt`, which are repo notes, not pages for visitors.
+- **Sitemap:** it points search engines to `https://theafolabiamina.com/sitemap.xml`.
+
+### 3. Structured data (homepage only)
+- **Markup:** a JSON-LD block describing the site as **Person + WebSite**, not "Organization", because the site is about you, not a company.
+- **Person:** Aminat Afolabi, Product Manager, works for Conclase, Lagos, Nigeria, University of Ilorin alumna. It uses your social preview image and links your LinkedIn, GitHub and X.
+- **WebSite:** the site's name, address and description.
+- **Where the details come from:** all of them are already on the site. Nothing is invented.
+
+### Checked before release
+- `/robots.txt` and `/sitemap.xml` load, the sitemap is valid XML, and every address in it opens.
+- The structured data is valid JSON, on the homepage only.
+
+---
+
 ## 2026-10-27 · Two new recommendations, Sabilytics analytics
 
 **Files changed:** `index.html`, `beyond.html`, all five `work/*.html` pages
